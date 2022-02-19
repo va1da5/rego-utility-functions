@@ -4,7 +4,7 @@
 
 ## Functions
 
-- `compact(array)` - Creates an array with all falsey values removed. The values `false`, `null`, `0`, `""`, `{}` and `[]` are considered falsey.
+- [`compact(array)`](./utils/utils.rego#L3) - Creates an array with all falsey values removed. The values `false`, `null`, `0`, `""`, `{}` and `[]` are considered falsey.
 
   ```rego
   out := compact(["a", false, null, 0, "", [], {}])
@@ -15,7 +15,7 @@
     - `array` (*array*): The array to compact.
 
 
-- `every(array, match)` - Checks if `match` value matches to all items in array.
+- [`every(array, match)`](./utils/utils.rego#L15) - Checks if `match` value matches to all items in array.
 
   ```rego 
   every([true, true, true], true) # true
@@ -28,7 +28,7 @@
     - `match` (*any*): The value to check against.
 
 
-- `get(object, path)` - Gets the value at `path` of `object`.
+- [`get(object, path)`](./utils/utils.rego#L24) - Gets the value at `path` of `object`.
 
   ```rego
   get({"a": {"b": {"c": 1}}}, "a.b.c") # 1
@@ -40,7 +40,7 @@
     - `path` (*string*): The path to get the value from.
 
 
-- `get_or_default(object, path, default_value)` - Gets the value at `path` of `object`. If the resolved value is `undefined`, the `default_value` is returned in its place.
+- [`get_or_default(object, path, default_value)`](./utils/utils.rego#L31) - Gets the value at `path` of `object`. If the resolved value is `undefined`, the `default_value` is returned in its place.
 
   ```rego
   get_or_default({"a": {"b": {"c": 1}}}, "a.b.c", null) # 1
@@ -54,7 +54,7 @@
     - `default_value` (*any*): The value to return if the resolved value is `undefined`.
 
 
-- `has(object, path)` - Checks if `path` exists on `object`.
+- [`has(object, path)`](./utils/utils.rego#L37) - Checks if `path` exists on `object`.
 
   ```rego
   has({"a": {"b": {"c": 1}}}, "a.b.c") # true
@@ -66,7 +66,7 @@
     - `object` (*object*): The object to check.
     - `path` (*string*): The path to check.
 
-- `includes(array, value)` - Checks if `value` exists in `array`.
+- [`includes(array, value)`](./utils/utils.rego#L44) - Checks if `value` exists in `array`.
 
   ```rego
   includes([1, 2, 3], 2) # true
@@ -77,7 +77,7 @@
     - `array` (*array*): The array to check.
     - `value` (*any*): The value to check.
 
-- `index_by(array, fraction)` - Gets index of object in array that matches provided fraction object.
+- [`index_by(array, fraction)`](./utils/utils.rego#L50) - Gets index of object in array that matches provided fraction object.
 
   ```rego
   index_by([{"a": 1, "b": 2}, {"a": 3, "b": 4}, {"a": 5, "b": 6}], {"a": 3}) # 1
@@ -90,7 +90,7 @@
     - `fraction` (*object*): The object fraction to check.
   ```
 
-- `index_of(array, value)` - Gets index of `value` in `array`.
+- [`index_of(array, value)`](./utils/utils.rego#L59) - Gets index of `value` in `array`.
 
   ```rego
   index_of([1, 2, 3], 2) # 1
@@ -101,7 +101,7 @@
     - `array` (*array*): The array to check.
     - `value` (*any*): The value to check.
 
-- `is_null_or_false(value)` - Checks if `value` is `null` or `false`.
+- [`is_null_or_false(value)`](./utils/utils.rego#L68) - Checks if `value` is `null` or `false`.
 
   ```rego
   is_null_or_false(null) # true
@@ -113,7 +113,7 @@
   Arguments:
     - `value` (*any*): The value to check.
 
-- `is_fraction(object, fraction)` - Checks if `object` matches `fraction`.
+- [`is_fraction(object, fraction)`](./utils/utils.rego#L74) - Checks if `object` matches `fraction`.
 
   ```rego
   is_fraction({"a": 1, "b": 2} {"a": 3}) # true
@@ -126,7 +126,7 @@
     - `fraction` (*object*): The object fraction to check.
 
 
-- `keys(object)` - Gets the keys of `object`.
+- [`keys(object)`](./utils/utils.rego#L84) - Gets the keys of `object`.
 
   ```rego
   keys({"a": 1, "b": 2}) # [ "a", "b" ]
@@ -136,7 +136,7 @@
     - `object` (*object*): The object to get the keys from.
 
 
-- `size(collection)` - Gets the size of `collection`.
+- [`size(collection)`](./utils/utils.rego#L91) - Gets the size of `collection`.
 
   ```rego
   size([1, 2, 3]) # 3
@@ -148,7 +148,7 @@
     - `collection` (*array* or *object* or *string*): The collection to get the size of.
 
 
-- `to_array(set)` - Converts `set` to an array.
+- [`to_array(set)`](./utils/utils.rego#L98) - Converts `set` to an array.
 
   ```rego
   to_array({"a", "b"}) # [ "a", "b" ]
@@ -158,7 +158,7 @@
     - `set` (*set*): The set to convert to an array.
 
 
-- `to_set(array)` - Converts `array` to a set.
+- [`to_set(array)`](./utils/utils.rego#L104) - Converts `array` to a set.
 
   ```rego
   to_set([1, 2, 2, 3, 3]) # { 1, 2, 3 }
@@ -167,7 +167,7 @@
   Arguments:
     - `array` (*array*): The array to convert to a set.
 
-- `to_path(path)` - Converts string `path` to a path array.
+- [`to_path(path)`](./utils/utils.rego#L118) - Converts string `path` to a path array.
 
   ```rego
   to_path("a.b.c") # [ "a", "b", "c" ]
@@ -177,7 +177,7 @@
   Arguments:
     - `path` (*string*): The string to convert to a path.
 
-- `try_to_number(string)` - Attempts to converts `string` to a number.
+- [`try_to_number(string)`](./utils/utils.rego#L125) - Attempts to converts `string` to a number.
 
   ```rego
   try_to_number("1") # 1
