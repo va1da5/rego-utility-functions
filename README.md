@@ -45,7 +45,7 @@
   ```rego
   get_or_default({"a": {"b": {"c": 1}}}, "a.b.c", null) # 1
   get_or_default({"a":[null, {"b": "hello"}]}, "a[1].b", null) # "hello"  
-  get_or_default({"a": "b"}, "a.does.not.exist", "default") # "default
+  get_or_default({"a": "b"}, "a.does.not.exist", "default") # "default"
   ```
 
   Arguments:
@@ -88,7 +88,6 @@
   Arguments:
     - `array` (*array*): The array to check.
     - `fraction` (*object*): The object fraction to check.
-  ```
 
 - [`index_of(array, value)`](./utils/utils.rego#L59) - Gets index of `value` in `array`.
 
